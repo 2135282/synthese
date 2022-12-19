@@ -46,16 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Class\Articles.cs" />
+    <Compile Include="Class\Films.cs" />
+    <Compile Include="Class\Livres.cs" />
+    <Compile Include="Class\Client.cs" />
+    <Compile Include="Form\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Form\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormIdentification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormIdentification.Designer.cs">
+      <DependentUpon>FormIdentification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormConsulter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormConsulter.Designer.cs">
+      <DependentUpon>FormConsulter.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormConsulter.resx">
+      <DependentUpon>FormConsulter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormIdentification.resx">
+      <DependentUpon>FormIdentification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
