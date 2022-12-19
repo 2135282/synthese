@@ -6,6 +6,8 @@ using System.Windows.Forms;
 
 namespace synthese
 {
+    //Joa-Lee Ippersiel
+    //2135282
     internal static class Program
     {
         /// <summary>

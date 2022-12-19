@@ -30,7 +30,10 @@ namespace synthese.Class
             duree = dureeF;
         }
 
-        // Méthode surchargée dans la classe fille Films
+        /// <summary>
+        /// Méthode surchargée dans la classe fille Films
+        /// </summary>
+        /// <returns>Les propriétés de la classe</returns>
         // **Exercices GestElection**
         public override string[] ToArray()
         {

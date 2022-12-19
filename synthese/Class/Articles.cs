@@ -57,8 +57,10 @@ namespace synthese.Class
             } 
         }
 
-        // Méthode qui retourne un tableau contenant les différentes valeurs des attributs
-        //Cette méthode sera surchargée dans la classe Livre
+        /// <summary>
+        /// méthode sera surchargée dans la classe Livre
+        /// </summary>
+        /// <returns>tableau contenant les différentes valeurs des attributs</returns>
         public virtual string[] ToArray()
         {
             string[] proprietes = new string[7];

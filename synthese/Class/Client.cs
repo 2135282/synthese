@@ -70,6 +70,11 @@ namespace synthese.Class
         }
 
         //Méthode
+        /// <summary>
+        /// Ajouter un client au dictionnaire de clients
+        /// SINON afficher un message d'erreur
+        /// </summary>
+        /// <param name="cli"></param>
         public static void AjouterClient(Client cli)  // Ajoute un client au dictionnaire
         {
             //Vérifier que le numéro d'identification n'existe pas
@@ -77,15 +82,26 @@ namespace synthese.Class
                 ListeClients.Add(cli.noIdentification.ToString(), cli);
             else MessageBox.Show("Le numéro d'identification existe déjà", "Message"); // Sinon afficher message 
         }
+        /// <summary>
+        /// Supprimer un client du dictionnaire de clients si son numéro d'identification existe déjà
+        /// SINON afficher un message d'erreur
+        /// </summary>
+        /// <param name="noIdentification"></param>
         public static void SupprimerClient(int noIdentification) // supprime l’article sélectionné de la liste.
         {
-            //Vérifier que le client existe dans le dictionnaire avant de le supprimer
+            //Vérifier que le client existe dans le dictionnaire en fonction de son numéro
+            //d'identification avant de le supprimer
             if (listClients.ContainsKey(noIdentification))
             {
                 listClients.Remove(noIdentification);
             }
             else MessageBox.Show("Le client n'existe pas", "Message"); //Sinon afficher un message
         }
+        /// <summary>
+        /// Modifier un client si son numéro d'identification existe déjà
+        /// SINON afficher un message d'erreur
+        /// </summary>
+        /// <param name="client"></param>
         public static void ModifierClient(Client client) // modifier le client donné en paramètre.
         {
             //Vérifier que le client existe dans le diictionnaire

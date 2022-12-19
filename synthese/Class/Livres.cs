@@ -30,8 +30,10 @@ namespace synthese.Class
             noPages = noP;
         }
 
-        // Méthode surchargée dans la classe fille Livres
-        // **Exercices GestElection**
+        /// <summary>
+        /// Méthode surchargée dans la classe fille Livres
+        /// </summary>
+        /// <returns>Les propriétés de la classe</returns>
         public override string[] ToArray()
         {
             //récuperer le tableau des proprietés de la classe parent Article

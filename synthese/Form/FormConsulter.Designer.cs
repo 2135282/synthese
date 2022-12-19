@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnRechercher = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Titre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantité = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Pages = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Durée = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRechercher = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,26 @@
             this.listView1.Size = new System.Drawing.Size(388, 184);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // Type
+            // 
+            this.Type.DisplayIndex = 4;
+            // 
+            // Titre
+            // 
+            this.Titre.DisplayIndex = 0;
+            // 
+            // Quantité
+            // 
+            this.Quantité.DisplayIndex = 1;
+            // 
+            // Pages
+            // 
+            this.Pages.DisplayIndex = 2;
+            // 
+            // Durée
+            // 
+            this.Durée.DisplayIndex = 3;
             // 
             // groupBox1
             // 
@@ -81,6 +101,7 @@
             this.btnRechercher.TabIndex = 2;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // comboBox1
             // 
@@ -104,26 +125,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Le type d\'article";
             // 
-            // Titre
-            // 
-            this.Titre.DisplayIndex = 0;
-            // 
-            // Quantité
-            // 
-            this.Quantité.DisplayIndex = 1;
-            // 
-            // Pages
-            // 
-            this.Pages.DisplayIndex = 2;
-            // 
-            // Durée
-            // 
-            this.Durée.DisplayIndex = 3;
-            // 
-            // Type
-            // 
-            this.Type.DisplayIndex = 4;
-            // 
             // FormConsulter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,7 +133,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
             this.Name = "FormConsulter";
-            this.Text = "Form2";
+            this.Text = "Consulter";
             this.Load += new System.EventHandler(this.FormConsulter_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

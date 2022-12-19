@@ -39,7 +39,6 @@
             this.txtboxCourriel = new System.Windows.Forms.TextBox();
             this.txtboxNom = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnModifArticle = new System.Windows.Forms.Button();
             this.btnEmprunter = new System.Windows.Forms.Button();
             this.comboBoxUsager = new System.Windows.Forms.ComboBox();
@@ -106,6 +105,7 @@
             this.txtboxPrenom.Name = "txtboxPrenom";
             this.txtboxPrenom.Size = new System.Drawing.Size(144, 20);
             this.txtboxPrenom.TabIndex = 5;
+            this.txtboxPrenom.TextChanged += new System.EventHandler(this.txtboxPrenom_TextChanged);
             // 
             // txtNoIdentification
             // 
@@ -142,7 +142,6 @@
             // 
             this.groupBox1.Controls.Add(this.btnAjouter);
             this.groupBox1.Controls.Add(this.btnSupprimer);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnModifArticle);
             this.groupBox1.Controls.Add(this.btnEmprunter);
             this.groupBox1.Location = new System.Drawing.Point(39, 295);
@@ -152,23 +151,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Action";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(271, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Rechercher client";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnModifArticle
             // 
-            this.btnModifArticle.Location = new System.Drawing.Point(188, 62);
+            this.btnModifArticle.Location = new System.Drawing.Point(98, 62);
             this.btnModifArticle.Name = "btnModifArticle";
             this.btnModifArticle.Size = new System.Drawing.Size(115, 23);
             this.btnModifArticle.TabIndex = 2;
             this.btnModifArticle.Text = "Modifier client";
             this.btnModifArticle.UseVisualStyleBackColor = true;
+            this.btnModifArticle.Click += new System.EventHandler(this.btnModifArticle_Click);
             // 
             // btnEmprunter
             // 
@@ -178,6 +169,7 @@
             this.btnEmprunter.TabIndex = 0;
             this.btnEmprunter.Text = "Emprunter";
             this.btnEmprunter.UseVisualStyleBackColor = true;
+            this.btnEmprunter.Click += new System.EventHandler(this.btnEmprunter_Click);
             // 
             // comboBoxUsager
             // 
@@ -199,6 +191,7 @@
             this.btnConfirmer.TabIndex = 12;
             this.btnConfirmer.Text = "Confirmer";
             this.btnConfirmer.UseVisualStyleBackColor = true;
+            this.btnConfirmer.Click += new System.EventHandler(this.btnConfirmer_Click);
             // 
             // lblErreurPrenom
             // 
@@ -250,21 +243,23 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(354, 62);
+            this.btnSupprimer.Location = new System.Drawing.Point(301, 62);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(115, 23);
             this.btnSupprimer.TabIndex = 4;
             this.btnSupprimer.Text = "Supprimer client";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(6, 62);
+            this.btnAjouter.Location = new System.Drawing.Point(301, 19);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(115, 23);
             this.btnAjouter.TabIndex = 5;
-            this.btnAjouter.Text = "Ajouter article";
+            this.btnAjouter.Text = "Ajouter client";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // FormIdentification
             // 
@@ -322,7 +317,6 @@
         private System.Windows.Forms.Label lblErreurNoTel;
         private System.Windows.Forms.Label lblErreurNoIdentification;
         private System.Windows.Forms.Label lblErreurCb;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSupprimer;
     }

@@ -10,6 +10,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace synthese
 {
@@ -32,6 +35,7 @@ namespace synthese
             lblErreurNoIdentification.Text = lblErreurCb.Text = "";
         }
 
+        // ** Exercice GestElection **
         public bool VerifierRegex(string modele, TextBox tb, System.Windows.Forms.Label lbl, string messageErreur)
         {
             // Créer du Regex reg
@@ -92,19 +96,70 @@ namespace synthese
         public void AfficherClient(Client c)
         {
             //Affiche un élécteur choisi par numéro d'élécteur
-            if (e.Genre == 'f') // Si le genre est féminin cocher la radioButton1
-                radioButton1.Checked = true;
-            else radioButton2.Checked = true; // sinon cocher la radioButton2
-            dateTimePicker1.Value = e.DateNaissance;//Initialiser le dateTimePicker à la date de naissance de l'électeur
-            //Initialiser tous les autres champs du formulaire aux attributs de l'électeur
-            textBox1.Text = e.NumeroElecteur.ToString();
-            textBox2.Text = e.Telephone;
-            textBox3.Text = e.Nom;
-            textBox4.Text = e.Prenom;
-            textBox5.Text = e.Adresse;
-            textBox6.Text = e.Courriel;
-            comboBox1.Text = e.Circonscription;
+            //Initialiser les autres champs du formulaire aux attributs du client
+            txtboxPrenom.Text = c.Prenom;
+            txtboxNom.Text = c.Nom;
+            txtboxCourriel.Text = c.Courriel;
+            txtboxNoTelephone.Text = c.Telephone;
+            txtNoIdentification.Text = c.NoIdentification;
+            comboBoxUsager.Text = c.TypeUsager;
 
+        }
+
+        private void txtboxPrenom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            if (VerifierTous()) // Si tous les champs entrés sont valides
+            {
+                //Instancier un client avec les champs entrés par l'utilisateur
+                Client cli = new Client(txtboxPrenom.Text, txtboxNom.Text, txtboxCourriel.Text, txtboxNoTelephone.Text, txtNoIdentification.Text, comboBoxUsager.Text);
+                // Ajouter ce client au dictionnaire de la classe statique Client
+                Client.AjouterClient(cli);
+                InitialiserControles();     //Effacer les messages d'erreurs
+            }
+        }
+        private void btnEmprunter_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnModifArticle_Click(object sender, EventArgs e)
+        {
+            //Pour s'assurer que tous les labels sont initialisés 
+            InitialiserLabel();
+            //Vérifier que le numéro entré correspond à un client
+            bool b_identification = VerifierRegex("^[0-9]{5}$", txtNoIdentification, lblErreurNoIdentification, "5 chiffres");
+            if (b_identification) //Si oui modifier le client
+            {
+                Client.ModifierClient(Client, client);
+                InitialiserControles();
+            }
+        }
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            //Pour s'assurer que tous les labels sont initialisés 
+            InitialiserLabel();
+            //Vérifier que le numéro entré correspond à un client
+            bool b_identification = VerifierRegex("^[0-9]{5}$", txtNoIdentification, lblErreurNoIdentification, "5 chiffres");
+            if (b_identification) //Si oui supprimer le client
+            {
+                Client.SupprimerClient(int.Parse(txtNoIdentification.Text));
+                InitialiserControles();
+            }
+        }
+
+        private void btnConfirmer_Click(object sender, EventArgs e)
+        {
+            // Déterminer quels boutons sont disponnibles
+            if (VerifierTous()) // Si tous les champs entrés sont valides
+            {
+                //SI usager est un client et passe les champs, permettre Emprunter, modifier client(le siens)
+                // SINON SI usager est un responsable et passe les champs, permettre Ajouter client, Modifier client, Supprimer client
+
+            }
         }
     }
 }
