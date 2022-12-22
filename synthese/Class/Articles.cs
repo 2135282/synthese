@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;    // Permet l'utilisation des classes SqlConnection, SqlCommand et SqlAdapter
+using System.Data;              // Permet l'utilisation des classes DataSet et DataTable
 
 namespace synthese.Class
 {
@@ -11,9 +13,14 @@ namespace synthese.Class
     {
         //Attributs
         public List<Articles> listeArticles;    //  la liste des articles
-        private string titre;
-        private int quantite;
-        private string type;
+        private SqlConnection connection;
+        private SqlCommand command;
+        private SqlDataReader reader;
+        private SqlDataAdapter adapter;
+        private string connectionString;
+        private DataTable dtProjetSynthese;
+        private DataSet dsArticles;
+
 
         //Propriétés
         public List<Articles> ListeArticles
@@ -21,53 +28,25 @@ namespace synthese.Class
             get { return this.listeArticles; }
             set { this.listeArticles = value;}
         }
-        public string Titre
-        {
-            get { return this.titre; }
-            set { this.titre = value; }
-        }
-        public int Quantite
-        {
-            get { return this.quantite; }
-            set { this.quantite = value; }
-        }
-        public string Type
-        {
-            get { return this.type; }
-            set { this.type = value; }
-        }
 
-        //Constructeur par défaut
-        public Articles()
-        {
-            listeArticles = new List<Articles>();
-            titre = "";
-            quantite = 0;
-            type = "";
-        }
+        public SqlConnection Connection { get => connection; set => connection = value; }
+        public SqlCommand Command { get => command; set => command = value; }
+        public SqlDataReader Reader { get => reader; set => reader = value; }
+        public SqlDataAdapter Adapter { get => adapter; set => adapter = value; }
+        public string ConnectionString { get => connectionString; }     // Pas de set afin de bloquer la possibilité de la modifier
+        public DataTable DtEtudiants { get => dtProjetSynthese; set => dtProjetSynthese = value; }
+        public DataSet DsArticles { get => dsArticles; set => dsArticles = value; }
 
         //Constructeur par paramètres
-        public Articles(List<Articles> lstA, string titreArticle, int quantiteArticle, string typeArticle)
+        public Articles()
         {
-            {
-                listeArticles = lstA;
-                titre = titreArticle;
-                quantite = quantiteArticle;
-                type = typeArticle;
-            } 
-        }
-
-        /// <summary>
-        /// méthode sera surchargée dans la classe Livre
-        /// </summary>
-        /// <returns>tableau contenant les différentes valeurs des attributs</returns>
-        public virtual string[] ToArray()
-        {
-            string[] proprietes = new string[7];
-            proprietes[0] = type;
-            proprietes[1] = titre;
-            proprietes[2] = quantite.ToString();
-            return proprietes;
+                // Integrated Security = True;
+                connectionString = "Data Source=1105R1PC1;Initial Catalog=ProjetSynthese;User ID=sa";
+                connection = new SqlConnection(connectionString);
+                command = new SqlCommand();
+                adapter = new SqlDataAdapter();
+                dsArticles = new DataSet();
+                dtProjetSynthese = new DataTable();
         }
     }
 }
