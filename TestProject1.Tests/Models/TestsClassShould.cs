@@ -9,6 +9,7 @@ namespace TestProject1.Tests.Models
 {
     public class TestsClassShould
     {
+        // *** Test seulement 2-3 champs ***
         [Fact]
         public void AjoutClientListe()
         {

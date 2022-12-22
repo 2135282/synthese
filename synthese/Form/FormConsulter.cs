@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace synthese
 {
+    // *** Recherche ou statistique = recherche par critère: Recherche par Type + Titre
     public partial class FormConsulter : Form
     {
         public FormConsulter()
