@@ -39,7 +39,9 @@
             this.txtboxCourriel = new System.Windows.Forms.TextBox();
             this.txtboxNom = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnModifArticle = new System.Windows.Forms.Button();
+            this.btnAjoutClient = new System.Windows.Forms.Button();
+            this.btnSupClient = new System.Windows.Forms.Button();
+            this.btnModifClient = new System.Windows.Forms.Button();
             this.btnEmprunter = new System.Windows.Forms.Button();
             this.comboBoxUsager = new System.Windows.Forms.ComboBox();
             this.btnConfirmer = new System.Windows.Forms.Button();
@@ -49,8 +51,9 @@
             this.lblErreurNoTel = new System.Windows.Forms.Label();
             this.lblErreurNoIdentification = new System.Windows.Forms.Label();
             this.lblErreurCb = new System.Windows.Forms.Label();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.btnAjouter = new System.Windows.Forms.Button();
+            this.btnModifArticle = new System.Windows.Forms.Button();
+            this.btnSupArticle = new System.Windows.Forms.Button();
+            this.btnAjoutArticle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,9 +143,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnAjouter);
-            this.groupBox1.Controls.Add(this.btnSupprimer);
+            this.groupBox1.Controls.Add(this.btnAjoutArticle);
+            this.groupBox1.Controls.Add(this.btnSupArticle);
             this.groupBox1.Controls.Add(this.btnModifArticle);
+            this.groupBox1.Controls.Add(this.btnAjoutClient);
+            this.groupBox1.Controls.Add(this.btnSupClient);
+            this.groupBox1.Controls.Add(this.btnModifClient);
             this.groupBox1.Controls.Add(this.btnEmprunter);
             this.groupBox1.Location = new System.Drawing.Point(39, 295);
             this.groupBox1.Name = "groupBox1";
@@ -151,19 +157,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Action";
             // 
-            // btnModifArticle
+            // btnAjoutClient
             // 
-            this.btnModifArticle.Location = new System.Drawing.Point(98, 62);
-            this.btnModifArticle.Name = "btnModifArticle";
-            this.btnModifArticle.Size = new System.Drawing.Size(115, 23);
-            this.btnModifArticle.TabIndex = 2;
-            this.btnModifArticle.Text = "Modifier client";
-            this.btnModifArticle.UseVisualStyleBackColor = true;
-            this.btnModifArticle.Click += new System.EventHandler(this.btnModifArticle_Click);
+            this.btnAjoutClient.Location = new System.Drawing.Point(188, 62);
+            this.btnAjoutClient.Name = "btnAjoutClient";
+            this.btnAjoutClient.Size = new System.Drawing.Size(115, 23);
+            this.btnAjoutClient.TabIndex = 5;
+            this.btnAjoutClient.Text = "Ajouter client";
+            this.btnAjoutClient.UseVisualStyleBackColor = true;
+            this.btnAjoutClient.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // btnSupClient
+            // 
+            this.btnSupClient.Location = new System.Drawing.Point(393, 62);
+            this.btnSupClient.Name = "btnSupClient";
+            this.btnSupClient.Size = new System.Drawing.Size(115, 23);
+            this.btnSupClient.TabIndex = 4;
+            this.btnSupClient.Text = "Supprimer client";
+            this.btnSupClient.UseVisualStyleBackColor = true;
+            this.btnSupClient.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
+            // btnModifClient
+            // 
+            this.btnModifClient.Location = new System.Drawing.Point(6, 62);
+            this.btnModifClient.Name = "btnModifClient";
+            this.btnModifClient.Size = new System.Drawing.Size(115, 23);
+            this.btnModifClient.TabIndex = 2;
+            this.btnModifClient.Text = "Modifier client";
+            this.btnModifClient.UseVisualStyleBackColor = true;
+            this.btnModifClient.Click += new System.EventHandler(this.btnModifArticle_Click);
             // 
             // btnEmprunter
             // 
-            this.btnEmprunter.Location = new System.Drawing.Point(98, 19);
+            this.btnEmprunter.Location = new System.Drawing.Point(6, 19);
             this.btnEmprunter.Name = "btnEmprunter";
             this.btnEmprunter.Size = new System.Drawing.Size(115, 23);
             this.btnEmprunter.TabIndex = 0;
@@ -241,25 +267,35 @@
             this.lblErreurCb.Size = new System.Drawing.Size(0, 13);
             this.lblErreurCb.TabIndex = 18;
             // 
-            // btnSupprimer
+            // btnModifArticle
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(301, 62);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(115, 23);
-            this.btnSupprimer.TabIndex = 4;
-            this.btnSupprimer.Text = "Supprimer client";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
-            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            this.btnModifArticle.Location = new System.Drawing.Point(133, 19);
+            this.btnModifArticle.Name = "btnModifArticle";
+            this.btnModifArticle.Size = new System.Drawing.Size(115, 23);
+            this.btnModifArticle.TabIndex = 6;
+            this.btnModifArticle.Text = "Modifier article";
+            this.btnModifArticle.UseVisualStyleBackColor = true;
+            this.btnModifArticle.Click += new System.EventHandler(this.btnModifierArticle_Click);
             // 
-            // btnAjouter
+            // btnSupArticle
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(301, 19);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(115, 23);
-            this.btnAjouter.TabIndex = 5;
-            this.btnAjouter.Text = "Ajouter client";
-            this.btnAjouter.UseVisualStyleBackColor = true;
-            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            this.btnSupArticle.Location = new System.Drawing.Point(393, 19);
+            this.btnSupArticle.Name = "btnSupArticle";
+            this.btnSupArticle.Size = new System.Drawing.Size(115, 23);
+            this.btnSupArticle.TabIndex = 7;
+            this.btnSupArticle.Text = "Supprimer article";
+            this.btnSupArticle.UseVisualStyleBackColor = true;
+            this.btnSupArticle.Click += new System.EventHandler(this.btnSupArticle_Click);
+            // 
+            // btnAjoutArticle
+            // 
+            this.btnAjoutArticle.Location = new System.Drawing.Point(262, 19);
+            this.btnAjoutArticle.Name = "btnAjoutArticle";
+            this.btnAjoutArticle.Size = new System.Drawing.Size(115, 23);
+            this.btnAjoutArticle.TabIndex = 8;
+            this.btnAjoutArticle.Text = "Ajouter article";
+            this.btnAjoutArticle.UseVisualStyleBackColor = true;
+            this.btnAjoutArticle.Click += new System.EventHandler(this.btnAjoutArticle_Click);
             // 
             // FormIdentification
             // 
@@ -307,7 +343,7 @@
         private System.Windows.Forms.TextBox txtboxCourriel;
         private System.Windows.Forms.TextBox txtboxNom;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnModifArticle;
+        private System.Windows.Forms.Button btnModifClient;
         private System.Windows.Forms.Button btnEmprunter;
         private System.Windows.Forms.ComboBox comboBoxUsager;
         private System.Windows.Forms.Button btnConfirmer;
@@ -317,7 +353,10 @@
         private System.Windows.Forms.Label lblErreurNoTel;
         private System.Windows.Forms.Label lblErreurNoIdentification;
         private System.Windows.Forms.Label lblErreurCb;
-        private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.Button btnAjoutClient;
+        private System.Windows.Forms.Button btnSupClient;
+        private System.Windows.Forms.Button btnSupArticle;
+        private System.Windows.Forms.Button btnModifArticle;
+        private System.Windows.Forms.Button btnAjoutArticle;
     }
 }

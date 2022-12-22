@@ -161,5 +161,20 @@ namespace synthese
 
             }
         }
+
+        private void btnModifierArticle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjoutArticle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSupArticle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

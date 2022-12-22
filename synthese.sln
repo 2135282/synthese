@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "synthese", "synthese\synthe
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSynthese", "SetupSynthese\SetupSynthese.vdproj", "{C5C7E95B-E84A-41B7-92D6-0C021455AEFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1.Tests", "TestProject1.Tests\TestProject1.Tests.csproj", "{BD399F42-9429-4D6E-B3C0-DBEE666D99D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{E9DA914F-A761-4354-8868-4C083E5FC2DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5C7E95B-E84A-41B7-92D6-0C021455AEFD}.Debug|Any CPU.ActiveCfg = Debug
 		{C5C7E95B-E84A-41B7-92D6-0C021455AEFD}.Release|Any CPU.ActiveCfg = Release
+		{BD399F42-9429-4D6E-B3C0-DBEE666D99D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD399F42-9429-4D6E-B3C0-DBEE666D99D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD399F42-9429-4D6E-B3C0-DBEE666D99D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD399F42-9429-4D6E-B3C0-DBEE666D99D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
