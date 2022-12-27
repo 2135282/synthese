@@ -6,45 +6,25 @@ using System.Threading.Tasks;
 
 namespace synthese.Class
 {
-    internal class Livres: Articles
+    // ** Exercices Interface_ClassesMeres avec les animaux **
+    internal class Livres: Articles, IDuree
     {
-        //Champs privés
-        private int noPages;
-
-        //Accesseurs (propriétés)
-        public int NumeroPages
+        // Implémenter la méthode Consomer() de l'interface IConsommer
+        /// <summary>
+        /// Calcule le temps d'un livre si le lecteur reste sur la même page environ 2min
+        /// </summary>
+        /// <returns>La durée de lecture d'un livre</returns>
+        int DureeLecture()
         {
-            get { return noPages; }
-            set { noPages = value; }
-        }
-
-        //Constructeurs par défaut et avec paramètre
-        public Livres()
-        {
-            noPages = 0;
-        }
-
-        public Livres(List<Articles> lstA, string titreArticle, int quantiteArticle, string typeArticle, int noP):
-            base(lstA, titreArticle, quantiteArticle, typeArticle)
-        {
-            noPages = noP;
+            return  * 2;
         }
 
         /// <summary>
-        /// Méthode surchargée dans la classe fille Livres
+        /// Implémenter la méthode abstraite de la classe Articles Consommer()
         /// </summary>
-        /// <returns>Les propriétés de la classe</returns>
-        public override string[] ToArray()
+        public override void Consommer()
         {
-            //récuperer le tableau des proprietés de la classe parent Article
-            string[] proprietes1 = base.ToArray();
-            // créer un tableau pour acceuillir toutes les proprietés
-            string[] proprietes = new string[proprietes1.Length + 1];
-            // copier les proprietés héritées  
-            proprietes1.CopyTo(proprietes, 0);
-            // compléter le tableau proprietes avec les propriétés de la classe fille
-            proprietes[proprietes1.Length] = noPages.ToString();
-            return proprietes;
+            Console.WriteLine("Le client lit un livre.");
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace synthese
 {
+    // ** Rajouter mon code public dans GitHub pour permettre la correction **
     //Joa-Lee Ippersiel
     //2135282
     internal static class Program
