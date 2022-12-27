@@ -21,65 +21,54 @@ namespace synthese
 
         private void FormConsulter_Load(object sender, EventArgs e)
         {
+            //Instancier un objet Article qui sera utilisé pour se connecter à la base de données 
+            //et y accéder
+            Articles Art = new Articles();
 
+            //Écriture de la requête Sql qui va être utilisé dans l’objet Command
+            string Query = "Select * from Articles;";
+
+            // Préparer l'objet Command en mettant dans la CommandText la chaîne Query préparée
+            Art.Command.CommandText = Query;
+
+            // Mettre dans la propriété Connection de l'objet Command l'objet Connection qu'on a 
+            // Préparé (Instancié)
+            Art.Command.Connection = Art.Connection;
+
+            // Préparer l'objet Adapter qui sert d'intermédiaire entre la source de données et
+            // le DataSet. SelectCommand est utilisée car notre commande est une commande
+            // Select
+            Art.Adapter.SelectCommand = Art.Command;
+
+            //Remplir le DataSet Ado.DsScolarite avec le résultat de la requête Query (Dans ce 
+            //cas le résultat est la table Etudiants). Pour cela il faut utiliser la méthode 
+            //Fill
+            Art.Adapter.Fill(Art.DsArticles);
+
+            // La requête retourne une seule table. On met ce résultat dans la DataTable DtArticles
+            Art.DtProjetSynthese = Art.DsArticles.Tables[0];
+
+            // Afficher la table Art.DsArticles dans notre dataGridView: il suffit d'associer
+            // la table obtenue Art.DsArticles au DataSource de notre dataGridView
+            this.dataGridView1.DataSource = Art.DsArticles;
         }
 
-        // ** Exercices GestElection **
-        // Devrait provenir d'une base de données SQL
-        public void AfficherLivresListview(Livres l)
+        // ** Laboratoire_Mode_deconnecte **
+        private void btnRechercher_Click_1(object sender, EventArgs e)
         {
-            string[] arr = new string[8];
-            ListViewItem itm;
-            //Préparer les items dans un tableau
-            arr[0] = l.Type;
-            arr[1] = l.Titre;
-            arr[2] = l.Quantite;
-            arr[3] = l.pages;
-            //Créer un ListViewItem
-            itm = new ListViewItem(arr);
-            //Ajouter la l'item ListViewItem à la listView1
-            listView1.Items.Add(itm);
-        }
-
-        public void AfficherFilmsListview(Films f)
-        {
-            string[] arr = new string[8];
-            ListViewItem itm;
-            //Préparer les items dans un tableau
-            arr[0] = f.Type;
-            arr[1] = f.Titre;
-            arr[2] = f.Quantite;
-            arr[3] = f.DureeFilm;
-            //Créer un ListViewItem
-            itm = new ListViewItem(arr);
-            //Ajouter la l'item ListViewItem à la listView1
-            listView1.Items.Add(itm);
-        }
-
-        private void btnRechercher_Click(object sender, EventArgs e)
-        {
-            listView1.Items.Clear();
-            bool trouve = false;
-            //Parcourir la liste des articles de la classe Articles pour afficher tous les articles du type choisi par l'utilisateur
-            foreach (KeyValuePair<string, Articles> item in Articles.ListeArticles)
+            //Parcourir les lignes du DataTable DtProjetSynthese
+            Articles Art = new Articles();
+            foreach (DataRow row in Art.DtProjetSynthese.Rows)
             {
-                if (comboBox1.Text == "Livres") //Si l'article est inscrit dans le type livres
-                {
-                    AfficherLivresListview(item.Value); //Afficher les attributs des livres en question dans la listView1
-                                                       // Noter que item.value correspond à l'objet Article dont le type correspond à Livres
-
-                    trouve = true;
-                }
-                else if (comboBox1.Text == "Films")
-                {
-                    AfficherFilmsListview(item.Value); //Afficher les attributs des films en question dans la listView1
-                                                       // Noter que item.value correspond à l'objet Article dont le type correspond à Films
-
-                    trouve = true;
-                }
+                //Si le titre existe dans la table, Afficher les informations de l'article dans un MessageBox.
+                if (row[2].ToString() == textBoxTitre.Text)
+                    MessageBox.Show("Le type d'article :  " + row[4] + "\n"
+                                      + "Le titre : " + row[2] + "\n"
+                                      + "La quantité en stock : " + row[3] + "\n"
+                                      + "Le nombre de pages (livre) : " + row[0] + "\n"
+                                      + "La durée (film) : " + row[1] + "\n", "Résultat de la recherche", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            if (trouve == false)// Si pas d'articles inscrits dans le type choisi par l'utilisateur
-                MessageBox.Show("Il n'y a pas d'articles disponible de type: " + comboBox1.Text + " pour le moment", "Message");
+
         }
     }
 }

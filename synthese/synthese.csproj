@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Articles.cs" />
-    <Compile Include="Class\Class1.cs" />
+    <Compile Include="Class\IDuree.cs" />
+    <Compile Include="Class\Comparaison.cs" />
     <Compile Include="Class\Films.cs" />
-    <Compile Include="Class\Interface1.cs" />
     <Compile Include="Class\Livres.cs" />
     <Compile Include="Class\Client.cs" />
     <Compile Include="Form\Form1.cs">
